@@ -6,14 +6,14 @@ name := "sbt-stylus"
 
 version := "1.0.2-SNAPSHOT"
 
-scalaVersion := "2.10.4"
+scalaVersion := "2.10.5"
 
 libraryDependencies ++= Seq(
   "com.typesafe" % "jstranspiler" % "1.0.0",
   "org.webjars" % "mkdirp" % "0.3.5",
-  "org.webjars" % "stylus" % "0.45.1",
-  "org.webjars" % "stylus-nib" % "1.0.2-1",
-  "org.webjars" % "when-node" % "3.2.2"
+  "org.webjars" % "stylus" % "0.51.1",
+  "org.webjars" % "stylus-nib" % "1.1.0",
+  "org.webjars" % "when-node" % "3.5.2-3"
 )
 
 resolvers ++= Seq(
@@ -24,7 +24,7 @@ resolvers ++= Seq(
   Resolver.mavenLocal
 )
 
-addSbtPlugin("com.typesafe.sbt" %% "sbt-js-engine" % "1.0.0")
+addSbtPlugin("com.typesafe.sbt" %% "sbt-js-engine" % "1.1.1")
 
 publishMavenStyle := false
 
