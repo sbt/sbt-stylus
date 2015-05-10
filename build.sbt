@@ -4,8 +4,6 @@ organization := "com.typesafe.sbt"
 
 name := "sbt-stylus"
 
-version := "1.0.2-SNAPSHOT"
-
 scalaVersion := "2.10.5"
 
 libraryDependencies ++= Seq(
