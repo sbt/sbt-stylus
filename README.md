@@ -19,14 +19,14 @@ Your project's build file also needs to enable sbt-web plugins. For example with
 
     lazy val root = (project in file(".")).enablePlugins(SbtWeb)
 
-The compiler allows some of the same options to be specified as the (stylus CLI itself)[http://learnboost.github.io/stylus/docs/executable.html].
+The compiler allows some of the same options to be specified as the [stylus CLI itself](http://learnboost.github.io/stylus/docs/executable.html).
 Here are the options:
 
 Option              | Description
 --------------------|------------
 compress            | Compress output by removing some whitespace.
 useNib              | Adds nib dependency.
-useRupture          | Adds rupture dependency for media queries.
+useRupture          | Adds [rupture](http://jenius.github.io/rupture/)  dependency for media queries.
 
 ## Compression
 
@@ -58,7 +58,7 @@ div {
 
 ## Use Rupture
 
-Enable (rupture)[http://jenius.github.io/rupture/] to enable simple media queries in Stylus.
+Enable [rupture](http://jenius.github.io/rupture/) to enable simple media queries in Stylus.
 
 ```scala
 StylusKeys.useRupture in Assets := true
