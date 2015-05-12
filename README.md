@@ -25,7 +25,16 @@ Here are the options:
 Option              | Description
 --------------------|------------
 compress            | Compress output by removing some whitespaces.
-useNib              | Adds nib dependency
+useNib              | Adds nib dependency.
+useRupture          | Adds (rupture)[http://jenius.github.io/rupture/] dependency for media queries,
+
+## Compression
+
+The following sbt code illustrates how compression can be enabled:
+
+```scala
+StylusKeys.compress in Assets := true
+```
 
 ## Use Nib:
 
@@ -47,13 +56,32 @@ div {
 }
 ```
 
-
-## Compression
-
-The following sbt code illustrates how compression can be enabled:
-
+## Use Rupture
 ```scala
-StylusKeys.compress in Assets := true
+StylusKeys.useRupture in Assets := true
+```
+
+```stylus
+@import 'rupture'
+
+.whatever
+  color: red
+
++below(480px)
+  .whatever
+    color: green
+
+```
+will compile to:
+```css
+.whatever {
+  color: #f00;
+}
+@media only screen and (max-width: 480px) {
+  .whatever {
+    color: #008000;
+  }
+}
 ```
 
 ## File filters
