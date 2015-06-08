@@ -18,6 +18,26 @@ checkMainCssContents := {
                            |    color: #008000;
                            |  }
                            |}
+                           |.col {
+                           |  *zoom: 1;
+                           |  float: left;
+                           |  clear: none;
+                           |  text-align: inherit;
+                           |  width: 48.5%;
+                           |  margin-left: 0%;
+                           |  margin-right: 3%;
+                           |}
+                           |.col:before,
+                           |.col:after {
+                           |  content: '';
+                           |  display: table;
+                           |}
+                           |.col:after {
+                           |  clear: both;
+                           |}
+                           |.col:last-child {
+                           |  margin-right: 0%;
+                           |}
                            |""".stripMargin
   if (contents != expectedContents) {
     sys.error(s"""Not what we expected. Got:

@@ -27,6 +27,7 @@ Option              | Description
 compress            | Compress output by removing some whitespace.
 useNib              | Adds nib dependency.
 useRupture          | Adds [rupture](http://jenius.github.io/rupture/)  dependency for media queries.
+useJeet             | Adds [jeet](http://jeet.gs/)  grid system.
 
 ## Compression
 
@@ -84,6 +85,45 @@ will compile to:
   .whatever {
     color: #008000;
   }
+}
+```
+
+## Use Jeet
+
+Enable [jeet](http://jeet.gs/) to enable the grid system in Stylus.
+
+```scala
+StylusKeys.useJeet in Assets := true
+```
+
+```stylus
+@import 'jeet'
+
+.col
+  column(1/2)
+
+```
+will compile to:
+```css
+.col {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 48.5%;
+  margin-left: 0%;
+  margin-right: 3%;
+}
+.col:before,
+.col:after {
+  content: '';
+  display: table;
+}
+.col:after {
+  clear: both;
+}
+.col:last-child {
+  margin-right: 0%;
 }
 ```
 

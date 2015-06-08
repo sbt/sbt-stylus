@@ -8,6 +8,7 @@ var fs = require("fs"),
     stylus = require("stylus"),
     nib = require("nib");
     rupture = require("rupture");
+    jeet = require("jeet");
 
 var promised = {
     mkdirp: nodefn.lift(mkdirp),
@@ -30,6 +31,7 @@ function processor(input, output) {
     var style = stylus(contents, options)
     if (options.useNib) style.use(nib());
     if (options.useRupture) style.use(rupture());
+    if (options.useJeet) style.use(jeet());
 
     style.render(function (err, css) {
         if (err) {
