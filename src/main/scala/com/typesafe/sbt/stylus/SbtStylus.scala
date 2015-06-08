@@ -13,6 +13,7 @@ object Import {
 
     val compress = SettingKey[Boolean]("stylus-compress", "Compress output by removing some whitespaces.")
     val useNib = SettingKey[Boolean]("stylus-nib", "Use stylus nib.")
+    val useRupture = SettingKey[Boolean]("stylus-rupture", "Use rupture media queries.")
   }
 
 }
@@ -36,13 +37,15 @@ object SbtStylus extends AutoPlugin {
 
     jsOptions := JsObject(
       "compress" -> JsBoolean(compress.value),
-      "useNib" -> JsBoolean(useNib.value)
+      "useNib" -> JsBoolean(useNib.value),
+      "useRupture" -> JsBoolean(useRupture.value)
     ).toString()
   )
 
   override def projectSettings = Seq(
     compress := false,
-    useNib := false
+    useNib := false,
+    useRupture := false
 
   ) ++ inTask(stylus)(
     SbtJsTask.jsTaskSpecificUnscopedSettings ++

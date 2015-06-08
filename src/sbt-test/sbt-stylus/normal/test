@@ -1,7 +1,8 @@
-# Compile a less file
+# Compile a Stylus file
 
 > set JsEngineKeys.engineType := JsEngineKeys.EngineType.Node
 > set StylusKeys.useNib in Assets := true
+> set StylusKeys.useRupture in Assets := true
 
 > assets
 $ exists target/web/public/main/css/main.css

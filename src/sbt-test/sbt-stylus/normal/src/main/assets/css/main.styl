@@ -1,6 +1,14 @@
 @import 'nib'
+@import 'rupture'
 
 body
   color white
   display flexbox
   box-shadow: 2px 2px 2px #000
+
+.whatever
+  color: red
+
++below(480px)
+  .whatever
+    color: green
