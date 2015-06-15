@@ -29,6 +29,11 @@ function processor(input, output) {
     var style = stylus(contents, options)
     if (options.useNib) style.use(nib());
 
+    options.plugins.forEach(function(plugin) {
+      var tmp = require(plugin);
+      style.use(tmp());
+    });
+
     style.render(function (err, css) {
         if (err) {
           throw parseError(input, contents, err);

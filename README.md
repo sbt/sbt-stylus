@@ -25,7 +25,8 @@ Here are the options:
 Option              | Description
 --------------------|------------
 compress            | Compress output by removing some whitespaces.
-useNib              | Adds nib dependency
+useNib              | Adds nib dependency.
+plugins             | List of extra styles plugins to enable.
 
 ## Use Nib:
 
@@ -45,6 +46,15 @@ div {
   -webkit-box-shadow: 2px 2px 2px #000;
   box-shadow: 2px 2px 2px #000;
 }
+```
+
+## Additional Plugins
+
+Add any stylus plugin via a webjar library dependency to your project's
+plugins.sbt file, then add the key as so:
+
+```scala
+StylusKeys.plugins = Vector("nib", "jeet")
 ```
 
 

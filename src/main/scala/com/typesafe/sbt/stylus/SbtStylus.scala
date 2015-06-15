@@ -12,6 +12,7 @@ object Import {
     val stylus = TaskKey[Seq[File]]("stylus", "Invoke the stylus compiler.")
 
     val compress = SettingKey[Boolean]("stylus-compress", "Compress output by removing some whitespaces.")
+    val plugins = SettingKey[Vector[String]]("stylus-plugins", "List of webjar plugins to use with stylus.")
     val useNib = SettingKey[Boolean]("stylus-nib", "Use stylus nib.")
   }
 
@@ -36,14 +37,15 @@ object SbtStylus extends AutoPlugin {
 
     jsOptions := JsObject(
       "compress" -> JsBoolean(compress.value),
+      "plugins" -> JsArray(plugins.value.map(JsString(_))),
       "useNib" -> JsBoolean(useNib.value)
     ).toString()
   )
 
   override def projectSettings = Seq(
     compress := false,
+    plugins := Vector(),
     useNib := false
-
   ) ++ inTask(stylus)(
     SbtJsTask.jsTaskSpecificUnscopedSettings ++
       inConfig(Assets)(stylusUnscopedSettings) ++
