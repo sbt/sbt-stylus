@@ -19,13 +19,23 @@ Your project's build file also needs to enable sbt-web plugins. For example with
 
     lazy val root = (project in file(".")).enablePlugins(SbtWeb)
 
-The compiler allows some of the same options to be specified as the (stylus CLI itself)[http://learnboost.github.io/stylus/docs/executable.html].
+The compiler allows some of the same options to be specified as the [stylus CLI itself](http://learnboost.github.io/stylus/docs/executable.html).
 Here are the options:
 
 Option              | Description
 --------------------|------------
-compress            | Compress output by removing some whitespaces.
-useNib              | Adds nib dependency
+compress            | Compress output by removing some whitespace.
+useNib              | Adds nib dependency.
+useRupture          | Adds [rupture](http://jenius.github.io/rupture/)  dependency for media queries.
+useJeet             | Adds [jeet](http://jeet.gs/)  grid system.
+
+## Compression
+
+The following sbt code illustrates how compression can be enabled:
+
+```scala
+StylusKeys.compress in Assets := true
+```
 
 ## Use Nib:
 
@@ -47,13 +57,74 @@ div {
 }
 ```
 
+## Use Rupture
 
-## Compression
-
-The following sbt code illustrates how compression can be enabled:
+Enable [rupture](http://jenius.github.io/rupture/) to enable simple media queries in Stylus.
 
 ```scala
-StylusKeys.compress in Assets := true
+StylusKeys.useRupture in Assets := true
+```
+
+```stylus
+@import 'rupture'
+
+.whatever
+  color: red
+
++below(480px)
+  .whatever
+    color: green
+
+```
+will compile to:
+```css
+.whatever {
+  color: #f00;
+}
+@media only screen and (max-width: 480px) {
+  .whatever {
+    color: #008000;
+  }
+}
+```
+
+## Use Jeet
+
+Enable [jeet](http://jeet.gs/) to enable the grid system in Stylus.
+
+```scala
+StylusKeys.useJeet in Assets := true
+```
+
+```stylus
+@import 'jeet'
+
+.col
+  column(1/2)
+
+```
+will compile to:
+```css
+.col {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 48.5%;
+  margin-left: 0%;
+  margin-right: 3%;
+}
+.col:before,
+.col:after {
+  content: '';
+  display: table;
+}
+.col:after {
+  clear: both;
+}
+.col:last-child {
+  margin-right: 0%;
+}
 ```
 
 ## File filters

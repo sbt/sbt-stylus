@@ -1,6 +1,19 @@
 @import 'nib'
+@import 'rupture'
+@import 'jeet'
 
 body
   color white
   display flexbox
   box-shadow: 2px 2px 2px #000
+
+.whatever
+  color: red
+
++below(480px)
+  .whatever
+    color: green
+
+.col
+  column(1/2)
+

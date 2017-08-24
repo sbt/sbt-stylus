@@ -7,6 +7,8 @@ var fs = require("fs"),
     path = require("path"),
     stylus = require("stylus"),
     nib = require("nib");
+    rupture = require("rupture");
+    jeet = require("jeet");
 
 var promised = {
     mkdirp: nodefn.lift(mkdirp),
@@ -28,6 +30,8 @@ function processor(input, output) {
 
     var style = stylus(contents, options)
     if (options.useNib) style.use(nib());
+    if (options.useRupture) style.use(rupture());
+    if (options.useJeet) style.use(jeet());
 
     style.render(function (err, css) {
         if (err) {
@@ -40,7 +44,7 @@ function processor(input, output) {
         }
       });
     return result;
-    
+
   }).then(function(result) {
     return promised.mkdirp(path.dirname(output)).yield(result);
 
@@ -81,5 +85,3 @@ function parseError(input, contents, err) {
     source: input
   };
 }
-
-
