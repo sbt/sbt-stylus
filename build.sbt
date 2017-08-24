@@ -2,7 +2,7 @@ name := "sbt-stylus"
 description := "sbt-web plugin for running stylus"
 
 libraryDependencies ++= Seq(
-  "com.typesafe" % "jstranspiler" % "1.0.0",
+  "com.typesafe" % "jstranspiler" % "1.0.1",
   "org.webjars" % "mkdirp" % "0.3.5",
   "org.webjars" % "stylus" % "0.51.1",
   "org.webjars" % "stylus-nib" % "1.1.0",
