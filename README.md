@@ -1,7 +1,7 @@
 sbt-stylus
 ==========
 
-[![Build Status](https://api.travis-ci.org/sbt/sbt-stylus.png?branch=master)](https://travis-ci.org/sbt/sbt-stylus)
+[![Build Status](https://api.travis-ci.org/sbt/sbt-stylus.png?branch=master)](https://travis-ci.org/sbt/sbt-stylus) [![Download](https://api.bintray.com/packages/sbt-web/sbt-plugin-releases/sbt-stylus/images/download.svg)](https://bintray.com/sbt-web/sbt-plugin-releases/sbt-stylus/_latestVersion)
 
 > Note that this plugin is presently only working with an engineType set to Node e.g.:
 > `set JsEngineKeys.engineType := JsEngineKeys.EngineType.Node`
@@ -12,7 +12,7 @@ the scripts to verify. js-engine enables high performance linting given parallel
 To use this plugin use the addSbtPlugin command within your project's plugins.sbt (or as a global setting) i.e.:
 
 ```scala
-addSbtPlugin("com.typesafe.sbt" % "sbt-stylus" % "1.0.3")
+addSbtPlugin("com.typesafe.sbt" % "sbt-stylus" % "1.1.0")
 ```
 
 Your project's build file also needs to enable sbt-web plugins. For example with build.sbt:
