@@ -40,18 +40,22 @@ object SbtStylus extends AutoPlugin {
     ).toString()
   )
 
+  override def buildSettings = inTask(stylus)(
+    SbtJsTask.jsTaskSpecificUnscopedBuildSettings ++ Seq(
+      moduleName := "stylus",
+      shellFile := getClass.getClassLoader.getResource("stylus-shell.js")
+    )
+  )
+
   override def projectSettings = Seq(
     compress := false,
     useNib := false
 
   ) ++ inTask(stylus)(
-    SbtJsTask.jsTaskSpecificUnscopedSettings ++
+    SbtJsTask.jsTaskSpecificUnscopedProjectSettings ++
       inConfig(Assets)(stylusUnscopedSettings) ++
       inConfig(TestAssets)(stylusUnscopedSettings) ++
       Seq(
-        moduleName := "stylus",
-        shellFile := getClass.getClassLoader.getResource("stylus-shell.js"),
-
         taskMessage in Assets := "Stylus compiling",
         taskMessage in TestAssets := "Stylus test compiling"
       )
