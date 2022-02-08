@@ -9,4 +9,4 @@ libraryDependencies ++= Seq(
   "org.webjars" % "when-node" % "3.5.2-3"
 )
 
-addSbtJsEngine("1.2.2")
+addSbtJsEngine("1.2.3")
