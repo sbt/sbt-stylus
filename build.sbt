@@ -17,7 +17,7 @@ addSbtJsEngine("1.3.5")
 
 libraryDependencies ++= Seq(
   "com.typesafe" % "jstranspiler" % "1.0.1",
-  "org.webjars" % "mkdirp" % "0.3.5",
+  "org.webjars" % "mkdirp" % "0.5.0",
   "org.webjars" % "stylus" % "0.51.1",
   "org.webjars" % "stylus-nib" % "1.1.0",
   "org.webjars" % "when-node" % "3.5.2-3"
