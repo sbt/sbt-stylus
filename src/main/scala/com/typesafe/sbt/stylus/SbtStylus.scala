@@ -58,12 +58,12 @@ object SbtStylus extends AutoPlugin {
       inConfig(Assets)(stylusUnscopedSettings) ++
       inConfig(TestAssets)(stylusUnscopedSettings) ++
       Seq(
-        taskMessage in Assets := "Stylus compiling",
-        taskMessage in TestAssets := "Stylus test compiling"
+        Assets / taskMessage := "Stylus compiling",
+        TestAssets / taskMessage := "Stylus test compiling"
       )
   ) ++ SbtJsTask.addJsSourceFileTasks(stylus) ++ Seq(
-    stylus in Assets := (stylus in Assets).dependsOn(webModules in Assets).value,
-    stylus in TestAssets := (stylus in TestAssets).dependsOn(webModules in TestAssets).value
+    Assets / stylus := (Assets / stylus).dependsOn(Assets / webModules).value,
+    TestAssets / stylus := (TestAssets / stylus).dependsOn(TestAssets / webModules).value
   )
 
 }
