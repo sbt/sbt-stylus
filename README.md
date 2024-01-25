@@ -73,7 +73,7 @@ that are required for compilation. Beyond just `main.styl`, you can use an expre
 following:
 
 ```scala
-(Assets / StylusKeys.stylus / includeFilter := "foo.styl" | "bar.styl"
+Assets / StylusKeys.stylus / includeFilter := "foo.styl" | "bar.styl"
 ```
 
 ...where both `foo.styl` and `bar.styl` will be considered for the Stylus compiler.
