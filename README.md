@@ -1,18 +1,18 @@
 sbt-stylus
 ==========
 
-[![Build Status](https://api.travis-ci.org/sbt/sbt-stylus.png?branch=master)](https://travis-ci.org/sbt/sbt-stylus) [![Download](https://api.bintray.com/packages/sbt-web/sbt-plugin-releases/sbt-stylus/images/download.svg)](https://bintray.com/sbt-web/sbt-plugin-releases/sbt-stylus/_latestVersion)
+[![Build Status](https://github.com/sbt/sbt-stylus/actions/workflows/build-test.yml/badge.svg)](https://github.com/sbt/sbt-stylus/actions/workflows/build-test.yml)
 
-> Note that this plugin is presently only working with an engineType set to Node e.g.:
+> Note that this plugin is presently only working with an engineType set to Node e.g. (which is the default if a `node` command can be detected):
 > `set JsEngineKeys.engineType := JsEngineKeys.EngineType.Node`
 
-Allows stylus to be used from within sbt. Builds on com.typesafe.sbt:js-engine in order to execute the stylus compiler along with
+Allows stylus to be used from within sbt. Builds on com.github.sbt:sbt-js-engine in order to execute the stylus compiler along with
 the scripts to verify. js-engine enables high performance linting given parallelism and native JS engine execution.
 
 To use this plugin use the addSbtPlugin command within your project's plugins.sbt (or as a global setting) i.e.:
 
 ```scala
-addSbtPlugin("com.typesafe.sbt" % "sbt-stylus" % "1.1.0")
+addSbtPlugin("com.github.sbt" % "sbt-stylus" % "1.2.0")
 ```
 
 Your project's build file also needs to enable sbt-web plugins. For example with build.sbt:
@@ -31,7 +31,7 @@ plugins             | List of extra styles plugins to enable.
 ## Use Nib:
 
 ```scala
-StylusKeys.useNib in Assets := true
+Assets / StylusKeys.useNib := true
 ```
 
 ```stylus
@@ -63,7 +63,7 @@ StylusKeys.plugins = Vector("nib", "jeet")
 The following sbt code illustrates how compression can be enabled:
 
 ```scala
-StylusKeys.compress in Assets := true
+Assets / StylusKeys.compress := true
 ```
 
 ## File filters
@@ -73,7 +73,7 @@ that are required for compilation. Beyond just `main.styl`, you can use an expre
 following:
 
 ```scala
-includeFilter in (Assets, StylusKeys.stylus) := "foo.styl" | "bar.styl"
+(Assets / StylusKeys.stylus / includeFilter := "foo.styl" | "bar.styl"
 ```
 
 ...where both `foo.styl` and `bar.styl` will be considered for the Stylus compiler.
@@ -86,9 +86,7 @@ you may have a convention where any Stylus file starting with an `_` should not 
 include all `.styl` files but exclude any beginning with an `_` you can use the following declaration:
 
 ```scala
-includeFilter in (Assets, StylusKeys.stylus) := "*.styl"
+Assets / StylusKeys.stylus / includeFilter := "*.styl"
 
-excludeFilter in (Assets, StylusKeys.stylus) := "_*.styl"
+Assets / StylusKeys.stylus / excludeFilter := "_*.styl"
 ```
-
-&copy; Typesafe Inc., 2014
