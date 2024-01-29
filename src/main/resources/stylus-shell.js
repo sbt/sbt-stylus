@@ -1,12 +1,13 @@
 /*global process, require */
 
-var fs = require("fs"),
-    jst = require("jstranspiler"),
-    nodefn = require("when/node"),
-    mkdirp = require("mkdirp"),
+var requireIfExists = require('node-require-fallback'),
+    fs = require("fs"),
+    jst = requireIfExists("jstranspiler/1.0.1", "jstranspiler"), // sync with build.sbt
+    nodefn = requireIfExists("when/3.5.2-3/node", "when/node"), // sync with build.sbt
+    mkdirp = requireIfExists("mkdirp/0.5.0", "mkdirp"), // sync with build.sbt
     path = require("path"),
-    stylus = require("stylus"),
-    nib = require("nib");
+    stylus = requireIfExists("stylus/0.51.1", "stylus"), // sync with build.sbt
+    nib = requireIfExists("nib/1.1.0", "nib"); // sync with build.sbt
 
 var promised = {
     mkdirp: nodefn.lift(mkdirp),

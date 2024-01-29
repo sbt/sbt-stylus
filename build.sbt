@@ -16,11 +16,12 @@ developers += Developer(
 addSbtJsEngine("1.3.5")
 
 libraryDependencies ++= Seq(
-  "com.typesafe" % "jstranspiler" % "1.0.1",
-  "org.webjars" % "mkdirp" % "0.5.0",
-  "org.webjars" % "stylus" % "0.51.1",
-  "org.webjars" % "stylus-nib" % "1.1.0",
-  "org.webjars" % "when-node" % "3.5.2-3"
+  "org.webjars.npm" % "node-require-fallback" % "1.0.0",
+  "com.typesafe" % "jstranspiler" % "1.0.1", // sync with src/main/resources/stylus-shell.js
+  "org.webjars" % "mkdirp" % "0.5.0", // sync with src/main/resources/stylus-shell.js
+  "org.webjars" % "stylus" % "0.51.1", // sync with src/main/resources/stylus-shell.js
+  "org.webjars" % "stylus-nib" % "1.1.0", // sync with src/main/resources/stylus-shell.js
+  "org.webjars" % "when-node" % "3.5.2-3", // sync with src/main/resources/stylus-shell.js
 )
 
 // Customise sbt-dynver's behaviour to make it work with tags which aren't v-prefixed

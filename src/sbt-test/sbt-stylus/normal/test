@@ -13,3 +13,9 @@ $ exists target/web/public/main/css/main.css
 > assets
 -$ exists target/web/public/main/css/main.css
 $ exists target/web/public/main/css/main.min.css
+
+$ exists project/target/node-modules/webjars/jstranspiler/src/main.js
+$ exists project/target/node-modules/webjars/mkdirp/index.js
+$ exists project/target/node-modules/webjars/stylus/index.js
+$ exists project/target/node-modules/webjars/nib/lib/nib.js
+$ exists project/target/node-modules/webjars/when/when.js
