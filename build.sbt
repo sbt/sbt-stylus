@@ -2,8 +2,6 @@ lazy val `sbt-stylus` = project in file(".")
 
 enablePlugins(SbtWebBase)
 
-sonatypeProfileName := "com.github.sbt.sbt-stylus" // See https://issues.sonatype.org/browse/OSSRH-77819#comment-1203625
-
 description := "sbt-web plugin for running stylus"
 
 developers += Developer(
