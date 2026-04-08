@@ -9,6 +9,7 @@ import spray.json._
 object Import {
 
   object StylusKeys {
+    @transient
     val stylus = TaskKey[Seq[File]]("stylus", "Invoke the stylus compiler.")
 
     val compress = SettingKey[Boolean]("stylus-compress", "Compress output by removing some whitespaces.")
@@ -42,7 +43,7 @@ object SbtStylus extends AutoPlugin {
     ).toString()
   )
 
-  override def buildSettings = inTask(stylus)(
+  override def buildSettings = Project.inTask(stylus)(
     SbtJsTask.jsTaskSpecificUnscopedBuildSettings ++ Seq(
       moduleName := "stylus",
       shellFile := getClass.getClassLoader.getResource("stylus-shell.js")
@@ -53,7 +54,7 @@ object SbtStylus extends AutoPlugin {
     compress := false,
     plugins := Vector(),
     useNib := false
-  ) ++ inTask(stylus)(
+  ) ++ Project.inTask(stylus)(
     SbtJsTask.jsTaskSpecificUnscopedProjectSettings ++
       inConfig(Assets)(stylusUnscopedSettings) ++
       inConfig(TestAssets)(stylusUnscopedSettings) ++
