@@ -9,7 +9,7 @@ $ exists target/web/public/main/css/main.css
 
 # Compile with compression
 
-> set StylusKeys.compress in Assets := true
+> set Assets / StylusKeys.compress := true
 > assets
 -$ exists target/web/public/main/css/main.css
 $ exists target/web/public/main/css/main.min.css

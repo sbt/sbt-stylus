@@ -3,7 +3,7 @@ lazy val root = (project in file(".")).enablePlugins(SbtWeb)
 val checkMainCssContents = taskKey[Unit]("check-main-css-contents")
 
 checkMainCssContents := {
-  val contents = IO.read((WebKeys.public in Assets).value / "css" / "main.css")
+  val contents = IO.read((Assets / WebKeys.public).value / "css" / "main.css")
   val expectedContents = """body {
                            |  color: #fff;
                            |  display: flexbox;
