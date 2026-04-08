@@ -19,7 +19,7 @@ Your project's build file also needs to enable sbt-web plugins. For example with
 
     lazy val root = (project in file(".")).enablePlugins(SbtWeb)
 
-The compiler allows some of the same options to be specified as the (stylus CLI itself)[http://learnboost.github.io/stylus/docs/executable.html].
+The compiler allows some of the same options to be specified as the [stylus CLI itself](https://stylus-lang.com/docs/executable.html).
 Here are the options:
 
 Option              | Description
