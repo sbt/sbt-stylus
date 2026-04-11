@@ -38,9 +38,9 @@ object SbtStylus extends AutoPlugin {
 
     jsOptions := JsObject(
       "compress" -> JsBoolean(compress.value),
-      "plugins" -> JsArray(plugins.value.map(JsString(_))),
+      "plugins" -> JsArray(plugins.value.map(JsString(_)).toVector),
       "useNib" -> JsBoolean(useNib.value)
-    ).toString()
+    ).compactPrint
   )
 
   override def buildSettings = Project.inTask(stylus)(

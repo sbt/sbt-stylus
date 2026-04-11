@@ -1,4 +1,9 @@
-lazy val root = (project in file(".")).enablePlugins(SbtWeb)
+lazy val root = (project in file("."))
+  .enablePlugins(SbtWeb)
+  .settings(
+    // Classic target layout so scripted checks keep working on sbt 2.
+    target := baseDirectory.value / "target"
+  )
 
 val checkMainCssContents = taskKey[Unit]("check-main-css-contents")
 
