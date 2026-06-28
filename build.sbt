@@ -13,7 +13,7 @@ developers += Developer(
 
 addSbtJsEngine("1.4.0-M4")
 
-crossScalaVersions += "3.8.3"
+crossScalaVersions += "3.8.4"
 
 pluginCrossBuild / sbtVersion := {
   scalaBinaryVersion.value match {
