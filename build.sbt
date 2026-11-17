@@ -1,3 +1,5 @@
+ThisBuild / scalaVersion := "2.12.21"
+
 lazy val `sbt-stylus` = project in file(".")
 
 enablePlugins(SbtWebBase)
@@ -13,14 +15,14 @@ developers += Developer(
 
 addSbtJsEngine("1.4.0-M4")
 
-crossScalaVersions += "3.8.4"
+crossScalaVersions := Seq("2.12.21", "3.9.0")
 
 pluginCrossBuild / sbtVersion := {
   scalaBinaryVersion.value match {
     case "2.12" =>
-      sbtVersion.value
+      "1.12.15"
     case _ =>
-      "2.0.0-RC11"
+      "2.1.0"
   }
 }
 
