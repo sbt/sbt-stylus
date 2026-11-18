@@ -19,3 +19,7 @@ checkMainCssContents := {
                            |""".stripMargin
   if (contents != expectedContents) sys.error(s"Not what we expected: $contents")
 }
+
+ThisBuild / scalaVersion := {
+  if (sbtVersion.value.startsWith("1.")) "2.12.21" else "3.9.0"
+}

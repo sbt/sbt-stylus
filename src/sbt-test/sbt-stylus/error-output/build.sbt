@@ -6,3 +6,7 @@ lazy val root = (project in file("."))
   )
 
 WebKeys.reporter := new TestReporter(target.value)
+
+ThisBuild / scalaVersion := {
+  if (sbtVersion.value.startsWith("1.")) "2.12.21" else "3.9.0"
+}
